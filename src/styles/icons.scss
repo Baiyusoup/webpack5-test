@@ -1,0 +1,61 @@
+$--font-path: 'fonts' !default;
+$--font-display: 'auto' !default;
+$namespace: 'el';
+
+@font-face {
+  font-family: 'element-icons';
+  src: url('#{$--font-path}/element-icons.woff') format('woff'), /* chrome, firefox */
+       url('#{$--font-path}/element-icons.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  font-weight: normal;
+  font-display: $--font-display;
+  font-style: normal;
+}
+
+[class^="#{$namespace}-icon-"], [class*=" #{$namespace}-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'element-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.#{$namespace}-icon-view::before {
+  content: "\e6ce";
+}
+
+.#{$namespace}-icon-loading::before {
+  content: "\e6cf";
+}
+
+.#{$namespace}-icon-camera::before {
+  content: "\e779";
+}
+
+
+.#{$namespace}-icon-loading {
+  animation: rotating 2s linear infinite;
+}
+
+.#{$namespace}-icon--right {
+  margin-left: 5px;
+}
+.#{$namespace}-icon--left {
+  margin-right: 5px;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
